@@ -1934,8 +1934,8 @@ export class WAStartupService {
   private createJid(number: string): string {
     this.logger.verbose('Creating jid with number: ' + number);
 
-    if (number.includes('@g.us') || number.includes('@s.whatsapp.net')) {
-      this.logger.verbose('Number already contains @g.us or @s.whatsapp.net');
+    if (number.includes('@g.us') || number.includes('@s.whatsapp.net') || number.includes('@lid')) {
+      this.logger.verbose('Number already contains @g.us or @s.whatsapp.net or @lid');
       return number;
     }
 
