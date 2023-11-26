@@ -1200,6 +1200,7 @@ export class WAStartupService {
         browser,
         version,
         markOnlineOnConnect: this.localSettings.always_online,
+        retryRequestDelayMs: 10,
         connectTimeoutMs: 60_000,
         qrTimeout: 40_000,
         defaultQueryTimeoutMs: undefined,
@@ -1209,7 +1210,7 @@ export class WAStartupService {
         generateHighQualityLinkPreview: true,
         syncFullHistory: true,
         userDevicesCache: this.userDevicesCache,
-        transactionOpts: { maxCommitRetries: 1, delayBetweenTriesMs: 10 },
+        transactionOpts: { maxCommitRetries: 10, delayBetweenTriesMs: 10 },
         patchMessageBeforeSending: (message) => {
           const requiresPatch = !!(message.buttonsMessage || message.listMessage || message.templateMessage);
           if (requiresPatch) {
